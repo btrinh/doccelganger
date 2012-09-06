@@ -22,6 +22,7 @@ exports.index = function (req, res, eventEmitter) {
 };
 
 exports.upload = function (req, response, eventEmitter) {
+  
   // create directory for "session"
   var now = new Date()
     , currentDate = 
@@ -50,9 +51,8 @@ exports.upload = function (req, response, eventEmitter) {
   file.convertFormat = req.body.format;
   file.index = req.body.index;
   
-  var mediaLink = '/feeds/upload/create-session/' +  creds.loginEscaped +
-                  '/private/full/folder%3A' + 
-                  creds.gFolderID + '/contents'
+  var mediaLink = '/feeds/upload/create-session/' +  creds.loginEscaped
+                + '/private/full/folder%3A' + creds.gFolderID + '/contents'
   
   console.log("Media Link :" + mediaLink)
   

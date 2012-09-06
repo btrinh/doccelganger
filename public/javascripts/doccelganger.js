@@ -1,3 +1,5 @@
+(function(){
+
 var allFiles = []
   , dropzone = $('#upload')
   , messages = $('#messages')
@@ -271,3 +273,5 @@ function normalizeFiletype (filetype) {
       break;
   }
 }
+
+})();
