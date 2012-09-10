@@ -4,7 +4,8 @@ header
     p They do exist...
 .container
   #messages.row
-    #no-js.alert.alert-danger Javascript is required to use this application!
+    #no-js.alert.alert-danger Enable JavaScript in your Browser to run this app!
+    #is-html5-supported.alert.alert-danger Your browser is not compatible with this app :(
   form#upload.row(action='/upload', method='POST', enctype='multipart/form-data')
     #instructions
       ol
@@ -14,9 +15,6 @@ header
         li When finished adding files, click on "Upload & Convert"
         li Right click on "Download file" and click "Save Link As" when your download finishes
     table#files.table
-    //-.span12
-      //p Drop files here
-      //table#files.row.table.table-striped
   .row
     button(type="submit")#convert.btn.btn-primary.btn-large
       i.icon-upload.icon-white
@@ -24,6 +22,5 @@ header
     button(type="button")#remove.btn.btn-large.btn-danger
       i.icon-trash.icon-white
       span Remove All Files
-    //a(id="test", href="#").btn.btn-inverse Test
   
   !=partial('partials/scripts')

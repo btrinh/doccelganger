@@ -7,3 +7,4 @@ TODO
 - Replace hardcoded upload limit; use async limited foreach
 - Logging
 - Redo temp namespacing fix
+- Refactor Error Handling

@@ -1,3 +1,4 @@
+// temp "namespacing"
 (function(){
 
 var allFiles = []
@@ -6,7 +7,6 @@ var allFiles = []
   , errors = false
   , fileFormats = []
   , socket = io.connect(window.location.hostname)
-  //, socket = new io.Socket()
   , clientId
   , clientIp
   , nConverted = 0
@@ -17,6 +17,11 @@ var allFiles = []
 
 $(function(){
   $('#no-js').remove();
+  if (!!FileReader && Modernizr.draganddrop) {
+    $('#is-html5-supported').remove()
+  } else {
+    alert('your browser doesnt have FileReader')
+  }
 });
 
 socket.on('clientInfo', function (data) {
@@ -164,7 +169,6 @@ function uploadFiles(){
     xhr.open('POST', '/upload', true);
     xhr.addEventListener('error', onError, false);
     xhr.addEventListener('progress', onProgress, false);
-    //xhr.addEventListener('onreadystatechange', onReady, false);
     xhr.send(formData);
   });
 }
@@ -241,7 +245,6 @@ function onDrop (e) {
 function dlReady (index, href) {
   dropzone.find('tr').eq(index).find('td:last div').remove();
   dropzone.find('tr').eq(index)
-    //.find('button[name="rmfile"]')
     .find('button')
       .removeClass('btn-warning')
       .addClass('btn-success')

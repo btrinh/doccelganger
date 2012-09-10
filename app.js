@@ -17,6 +17,7 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.set('view options', { pretty: true });
   app.use(express.bodyParser());
+  app.use(express.cookieParser());
   app.use(express.methodOverride());
   app.use(express.compiler({ src: __dirname + '/public', enable: ['less']}))
   app.use(app.router);
@@ -47,6 +48,7 @@ var io = require('socket.io').listen(app)
 
 // io config
 io.set('log level', 1)
+
 
 io.sockets.on('connection', function (client) {
   clients.push(client)
